@@ -11,11 +11,11 @@ import { DESTROY_USER } from '../store/modules/auth/actions.type'
 const ApiService = {
     init() {
         Vue.use(VueAxios, axios);
-        // Vue.axios.defaults.baseURL = "http://localhost:5000/api"
+        Vue.axios.defaults.baseURL = "http://api.stellacicekcilik.shop/api"
         // Vue.axios.defaults.baseURL = "http://159.253.36.44:8080/api"
         //Vue.axios.defaults.baseURL = "http://localhost:5000/api"
         //Vue.axios.defaults.baseURL = "https://api.evacicekcilik.xyz/api"
-        Vue.axios.defaults.baseURL = "http://api.fulyacicekcilik.online/api"
+        // Vue.axios.defaults.baseURL = "http://localhost:5000/api"
     },
 
     setHeader() {

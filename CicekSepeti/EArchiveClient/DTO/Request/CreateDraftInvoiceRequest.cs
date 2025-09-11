@@ -23,16 +23,16 @@ namespace EArchiveClient.DTO.Request
     public class MalHizmetTable
     {
         public string malHizmet { get; set; }
-        public int miktar { get; set; } = 1;
-        public string birim { get; set; } = "C62";
+        public int miktar { get; set; }
+        public string birim { get; set; }
         public string birimFiyat { get; set; }
         public string fiyat { get; set; }
-        public int iskontoOrani { get; set; } = 0;
-        public string iskontoTutari { get; set; } = "0";
-        public string iskontoNedeni { get; set; } = "";
+        public int iskontoOrani { get; set; }
+        public string iskontoTutari { get; set; }
+        public string iskontoNedeni { get; set; }
         public string malHizmetTutari { get; set; }
         public string kdvOrani { get; set; }
-        public int vergiOrani { get; set; } = 0;
+        public int vergiOrani { get; set; }
         public string kdvTutari { get; set; }
         public string vergininKdvTutari { get; set; }
         public string ozelMatrahTutari { get; set; }
@@ -42,13 +42,13 @@ namespace EArchiveClient.DTO.Request
     public class Fatura
     {
         public string faturaUuid { get; set; }
-        public string belgeNumarasi { get; set; } = "";
+        public string belgeNumarasi { get; set; }
         public string faturaTarihi { get; set; }
         public string saat { get; set; }
-        public string paraBirimi { get; set; } = "TRY";
-        public string dovzTLkur { get; set; } = "0";
-        public string faturaTipi { get; set; } = "SATIS";
-        public string hangiTip { get; set; } = "5000/30000";
+        public string paraBirimi { get; set; }
+        public string dovzTLkur { get; set; }
+        public string faturaTipi { get; set; }
+        public string hangiTip { get; set; }
         public string vknTckn { get; set; }
         public string aliciUnvan { get; set; }
         public string aliciAdi { get; set; }
@@ -58,21 +58,22 @@ namespace EArchiveClient.DTO.Request
         public string kapiNo { get; set; }
         public string kasabaKoy { get; set; }
         public string vergiDairesi { get; set; }
-        public string ulke { get; set; } = "Türkiye";
+        public string ulke { get; set; }
         public string bulvarcaddesokak { get; set; }
         public string irsaliyeNumarasi { get; set; }
         public string irsaliyeTarihi { get; set; }
         public string mahalleSemtIlce { get; set; }
-        public string sehir { get; set; } = " ";
+        public string sehir { get; set; }
         public string postaKodu { get; set; }
         public string tel { get; set; }
         public string fax { get; set; }
         public string eposta { get; set; }
         public string websitesi { get; set; }
         public List<object> iadeTable { get; set; } = new List<object>();
-        public string vergiCesidi { get; set; } = " ";
-        public List<MalHizmetTable> malHizmetTable { get; set; } = new List<MalHizmetTable>();
-        public string tip { get; set; } = "İskonto";
+        public string ihracKayitliKarsiBelgeNo { get; set; }
+        public string vergiCesidi { get; set; }
+        public List<MalHizmetTable> malHizmetTable { get; set; }
+        public string tip { get; set; }
         public string matrah { get; set; }
         public string malhizmetToplamTutari { get; set; }
         public string toplamIskonto { get; set; } = "0";
@@ -86,11 +87,13 @@ namespace EArchiveClient.DTO.Request
         public string fisNo { get; set; }
         public string fisTarihi { get; set; }
         public string fisSaati { get; set; }
-        public string fisTipi { get; set; } = " ";
+        public string fisTipi { get; set; }
         public string zRaporNo { get; set; }
         public string okcSeriNo { get; set; }
+
+        public Fatura()
+        {
+            malHizmetTable = new List<MalHizmetTable>();
+        }
     }
-
-
-
 }

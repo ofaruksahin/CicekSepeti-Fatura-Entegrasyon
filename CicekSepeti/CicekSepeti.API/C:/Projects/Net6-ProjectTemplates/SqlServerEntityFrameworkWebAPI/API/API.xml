@@ -1,0 +1,379 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CicekSepeti.API</name>
+    </assembly>
+    <members>
+        <member name="T:CicekSepeti.API.AutoMapper.MapperProfile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CicekSepeti.API.AutoMapper.MapperProfile.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CicekSepeti.API.Bootstrapper.AutoMapperBootstrapper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CicekSepeti.API.Bootstrapper.AutoMapperBootstrapper.AddMapper(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CicekSepeti.API.Bootstrapper.DependencyInjectionBootstrapper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CicekSepeti.API.Bootstrapper.DependencyInjectionBootstrapper.AddDependencyInjection(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CicekSepeti.API.Bootstrapper.FluentValidatorBootstrapper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CicekSepeti.API.Bootstrapper.FluentValidatorBootstrapper.AddFluentValidatorBootstrapper(Microsoft.Extensions.DependencyInjection.IMvcBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CicekSepeti.API.Bootstrapper.LocalizationBootstrapper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CicekSepeti.API.Bootstrapper.LocalizationBootstrapper.AddLocalizationMessage(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CicekSepeti.API.Bootstrapper.LocalizationBootstrapper.UseLocalizationMessage(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CicekSepeti.API.Bootstrapper.SwaggerBootstrapper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CicekSepeti.API.Bootstrapper.SwaggerBootstrapper.AddSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CicekSepeti.API.Bootstrapper.SwaggerBootstrapper.UseSwaggerGen(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CicekSepeti.API.Controllers.AuthController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CicekSepeti.API.Controllers.AuthController.#ctor(Core.Interfaces.IUnitOfWork,AutoMapper.IMapper,Microsoft.Extensions.Localization.IStringLocalizer{CicekSepeti.API.BaseResource},Microsoft.Extensions.Localization.IStringLocalizer{CicekSepeti.API.UserResource})">
+            <summary>
+            
+            </summary>
+            <param name="_uow"></param>
+            <param name="_mapper"></param>
+            <param name="_localizer"></param>
+            <param name="_l"></param>
+        </member>
+        <member name="M:CicekSepeti.API.Controllers.AuthController.LogIn(Core.Dtos.Request.Auth.LogInRequestDTO)">
+            <summary>
+            
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CicekSepeti.API.Controllers.BaseController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CicekSepeti.API.Controllers.BaseController.uow">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CicekSepeti.API.Controllers.BaseController.mapper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CicekSepeti.API.Controllers.BaseController.localizer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CicekSepeti.API.Controllers.BaseController.#ctor(Core.Interfaces.IUnitOfWork,AutoMapper.IMapper,Microsoft.Extensions.Localization.IStringLocalizer{CicekSepeti.API.BaseResource})">
+            <summary>
+            
+            </summary>
+            <param name="_uow"></param>
+            <param name="_mapper"></param>
+            <param name="_localizer"></param>
+        </member>
+        <member name="P:CicekSepeti.API.Controllers.BaseController.CurrentUserToken">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CicekSepeti.API.Controllers.BaseController.CurrentUserId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CicekSepeti.API.Controllers.BaseController.CurrentUser">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CicekSepeti.API.Controllers.BaseController.Ok``1(``0,System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="data"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CicekSepeti.API.Controllers.BaseController.NotFound``1(``0,System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="data"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CicekSepeti.API.Controllers.FilesController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CicekSepeti.API.Controllers.FilesController.#ctor(Core.Interfaces.IUnitOfWork,AutoMapper.IMapper,Microsoft.Extensions.Localization.IStringLocalizer{CicekSepeti.API.BaseResource},Microsoft.Extensions.Localization.IStringLocalizer{CicekSepeti.API.FileResource},Microsoft.Extensions.Localization.IStringLocalizer{CicekSepeti.API.ParameterResource},Core.Interfaces.IMinioService)">
+            <summary>
+            
+            </summary>
+            <param name="_uow"></param>
+            <param name="_mapper"></param>
+            <param name="_localizer"></param>
+            <param name="_l"></param>
+            <param name="_r"></param>
+        </member>
+        <member name="M:CicekSepeti.API.Controllers.FilesController.List">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CicekSepeti.API.Controllers.FilesController.Upload(Core.Dtos.Request.File.UploadFileRequestDTO)">
+            <summary>
+            
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CicekSepeti.API.Controllers.InvoiceController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CicekSepeti.API.Controllers.InvoiceController.l">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CicekSepeti.API.Controllers.InvoiceController.f">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CicekSepeti.API.Controllers.InvoiceController.#ctor(Core.Interfaces.IUnitOfWork,AutoMapper.IMapper,Microsoft.Extensions.Localization.IStringLocalizer{CicekSepeti.API.BaseResource},Microsoft.Extensions.Localization.IStringLocalizer{CicekSepeti.API.InvoiceResource},Microsoft.Extensions.Localization.IStringLocalizer{CicekSepeti.API.FileResource})">
+            <summary>
+            
+            </summary>
+            <param name="_uow"></param>
+            <param name="_mapper"></param>
+            <param name="_localizer"></param>
+            <param name="_l"></param>
+            <param name="_f"></param>
+        </member>
+        <member name="M:CicekSepeti.API.Controllers.InvoiceController.List(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CicekSepeti.API.Controllers.InvoiceController.ProcessInvoce(Core.Dtos.Request.Invoice.ProcessInvoiceRequestDTO)">
+            <summary>
+            
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CicekSepeti.API.Filters.AllowAnonymous">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CicekSepeti.API.Filters.AllowAnonymous.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:CicekSepeti.API.Filters.AllowAnonymous.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:CicekSepeti.API.Filters.Authorize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CicekSepeti.API.Filters.Authorize.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:CicekSepeti.API.Filters.Authorize.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:CicekSepeti.API.Filters.Authorize.UnAuthorized(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:CicekSepeti.API.Models.BaseResult`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:CicekSepeti.API.Models.BaseResult`1.Data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CicekSepeti.API.Models.BaseResult`1.Message">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CicekSepeti.API.Models.BaseResult`1.StatusCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CicekSepeti.API.Models.BaseResult`1.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CicekSepeti.API.Program">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CicekSepeti.API.Program.Main(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:CicekSepeti.API.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CicekSepeti.API.BaseResource">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CicekSepeti.API.FileResource">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CicekSepeti.API.InvoiceResource">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CicekSepeti.API.ParameterResource">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CicekSepeti.API.UserResource">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CicekSepeti.API.Startup">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CicekSepeti.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:CicekSepeti.API.Startup.Configuration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CicekSepeti.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:CicekSepeti.API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+    </members>
+</doc>

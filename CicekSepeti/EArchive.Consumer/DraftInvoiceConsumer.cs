@@ -105,6 +105,10 @@ namespace EArchive.Consumer
                                             continue;
                                         }
 
+                                        var customerName = invoice.CustomerName.Split(' ').ToList();
+                                        var lastName = customerName.LastOrDefault();
+                                        customerName.Remove(lastName);
+                                        
                                         Fatura draftInvoice = new Fatura();
                                         draftInvoice.faturaUuid = invoice.InvoiceUniqueKey;
                                         draftInvoice.belgeNumarasi = "";
@@ -115,9 +119,9 @@ namespace EArchive.Consumer
                                         draftInvoice.faturaTipi = "SATIS";
                                         draftInvoice.hangiTip = "5000/30000";
                                         draftInvoice.vknTckn = invoice.CustomerVKN;
-                                        //draftInvoice.aliciUnvan = invoice.CustomerName;
-                                        draftInvoice.aliciAdi = invoice.CustomerName;
-                                        draftInvoice.aliciSoyadi = invoice.CustomerName;
+                                        draftInvoice.aliciUnvan = invoice.CustomerName;
+                                        draftInvoice.aliciAdi = string.Join(' ', customerName);
+                                        draftInvoice.aliciSoyadi = lastName;
                                         draftInvoice.binaAdi = "";
                                         draftInvoice.binaNo = "";
                                         draftInvoice.kapiNo = "";
@@ -128,13 +132,13 @@ namespace EArchive.Consumer
                                         draftInvoice.irsaliyeNumarasi = "";
                                         draftInvoice.irsaliyeTarihi = "";
                                         draftInvoice.mahalleSemtIlce = invoice.Address;
-                                        draftInvoice.sehir = " ";
+                                        draftInvoice.sehir = "+";
                                         draftInvoice.postaKodu = "";
                                         draftInvoice.tel = "";
                                         draftInvoice.fax = "";
                                         draftInvoice.eposta = "";
                                         draftInvoice.websitesi = "";
-                                        draftInvoice.vergiCesidi = " ";
+                                        draftInvoice.vergiCesidi = "+";
                                         draftInvoice.tip = "İskonto";
                                         draftInvoice.not = "";
                                         draftInvoice.siparisNumarasi = "";
@@ -337,6 +341,6 @@ namespace EArchive.Consumer
 
         }
 
-        string format(decimal d) => d.ToString().Replace(",", ".");
+        string format(decimal d) => Math.Round(d, 2).ToString().Replace(",", ".");
     }
 }

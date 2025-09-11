@@ -37,8 +37,9 @@ namespace EArchiveClient.Commands
                 request.AddHeader("Sec-Fetch-Mode", "cors");
                 request.AddHeader("Sec-Fetch-Dest", "empty");
                 //request.AddHeader("Referer", connectionInfo.EArchiveURL+"index.jsp?token=21c80f50fa0c8a65a3aa68cefda68f0c3d173509f9e8614908d84f04deb32185bfedebb3d36639a43d55abd722823180335e16eccc9f45e7f7bb4f372574a9d6&v=1624476996318");
-                request.AddHeader("Referer", connectionInfo.EArchiveURL+"index.jsp?token="+dto.Token+"&v=1624476996318");
+                request.AddHeader("Referer", connectionInfo.EArchiveURL+"index.jsp?token="+dto.Token+"&v=1756843433623");
                 request.AddHeader("Accept-Language", "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7");
+                request.AddHeader("Cookie", "JSESSIONID=-test; JSESSIONID=fffqwe");
                 var body = @"cmd=EARSIV_PORTAL_FATURA_OLUSTUR&callid="+Guid.NewGuid().ToString().Substring(0,15)+"&pageName=RG_BASITFATURA&token="+dto.Token+"&jp="+System.Web.HttpUtility.UrlEncode(dto.Invoice);
                 request.AddParameter("application/x-www-form-urlencoded; charset=UTF-8", body, ParameterType.RequestBody);
                 IRestResponse response = client.Execute(request);

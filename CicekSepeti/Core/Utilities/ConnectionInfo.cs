@@ -89,5 +89,15 @@ namespace Core.Utilities
         /// 
         /// </summary>
         public string CompanyName => (string)configuration.GetValue(typeof(string), "company_name");
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public string LocalFilePath => (string)configuration.GetValue(typeof(string), "local_file_path");
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string CdnUrl => (string)configuration.GetValue(typeof(string), "cdn_url");
     }
 }

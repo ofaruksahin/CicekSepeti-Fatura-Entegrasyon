@@ -26,7 +26,7 @@ namespace CicekSepeti.API
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseUrls("http://localhost:5000");
+                    webBuilder.UseUrls("http://0.0.0.0:6000");
                     webBuilder.UseStartup<Startup>();
                 });
     }
