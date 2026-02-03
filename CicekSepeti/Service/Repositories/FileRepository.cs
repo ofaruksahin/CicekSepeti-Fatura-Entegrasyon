@@ -92,18 +92,18 @@ namespace Service.Repositories
                         invoice.ProductSecondName = sheet.Cell(rowIndex, 4).Value.ToString();
                         invoice.Piece = int.Parse(sheet.Cell(rowIndex, 5).Value.ToString().Split(' ')[0]);
                         invoice.TaxRate = taxRate;
-                        invoice.SubTotal = decimal.Parse(sheet.Cell(rowIndex, 37).Value.ToString());
+                        invoice.SubTotal = decimal.Parse(sheet.Cell(rowIndex, 38).Value.ToString());
                         invoice.Tax = invoice.SubTotal - ((invoice.SubTotal * 100) / 120);
                         invoice.Price = invoice.SubTotal - invoice.Tax;
-                        invoice.CustomerName = sheet.Cell(rowIndex, 22).Value.ToString();
-                        invoice.TaxOffice = sheet.Cell(rowIndex, 25).Value.ToString();
-                        invoice.Address = sheet.Cell(rowIndex, 24).Value.ToString();
-                        var customerCompany = sheet.Cell(rowIndex, 23).Value.ToString();
+                        invoice.CustomerName = sheet.Cell(rowIndex, 23).Value.ToString();
+                        invoice.TaxOffice = sheet.Cell(rowIndex, 26).Value.ToString();
+                        invoice.Address = sheet.Cell(rowIndex, 25).Value.ToString();
+                        var customerCompany = sheet.Cell(rowIndex, 24).Value.ToString();
                         if (!string.IsNullOrEmpty(customerCompany))
                         {
                             invoice.CustomerName = customerCompany;
                         }
-                        invoice.CustomerVKN = sheet.Cell(rowIndex, 26).Value.ToString();
+                        invoice.CustomerVKN = sheet.Cell(rowIndex, 27).Value.ToString();
                         if (string.IsNullOrEmpty(invoice.CustomerVKN))
                         {
                             invoice.CustomerVKN = "11111111111";
