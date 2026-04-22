@@ -72,38 +72,40 @@ namespace Service.Repositories
                     var sheet = workbook.Worksheets.FirstOrDefault();
 
                     var rowCount = sheet.RowsUsed().Count();
+                    var colCount = sheet.ColumnsUsed().Count();
 
-                    bool firstRow = true;
-                    int rowIndex = 1;
-                    for (int r = 0; r < rowCount; r++)
+                    var columnMap = new Dictionary<string, int>();
+                    for (int c = 1; c <= colCount; c++)
                     {
-                        if (firstRow)
-                        {
-                            firstRow = false;
-                            continue;
-                        }
-                        rowIndex++;
+                        var header = sheet.Cell(1, c).Value.ToString().Trim();
+                        if (!string.IsNullOrEmpty(header))
+                            columnMap[header] = c;
+                    }
 
+                    int Col(string name) => columnMap.TryGetValue(name, out var idx) ? idx : throw new Exception($"'{name}' kolonu bulunamadı.");
+
+                    for (int rowIndex = 2; rowIndex <= rowCount; rowIndex++)
+                    {
                         Invoice invoice = new Invoice();
-                        invoice.OrderId = sheet.Cell(rowIndex, 1).Value.ToString();
-                        invoice.SubOrderId = sheet.Cell(rowIndex, 2).Value.ToString();
+                        invoice.OrderId = sheet.Cell(rowIndex, Col("Sipariş No")).Value.ToString();
+                        invoice.SubOrderId = sheet.Cell(rowIndex, Col("Alt Sipariş No")).Value.ToString();
                         invoice.InvoiceUniqueKey = Guid.NewGuid().ToString();
-                        invoice.ProductName = sheet.Cell(rowIndex, 3).Value.ToString();
-                        invoice.ProductSecondName = sheet.Cell(rowIndex, 4).Value.ToString();
-                        invoice.Piece = int.Parse(sheet.Cell(rowIndex, 5).Value.ToString().Split(' ')[0]);
+                        invoice.ProductName = sheet.Cell(rowIndex, Col("Ürün Adı")).Value.ToString();
+                        invoice.ProductSecondName = sheet.Cell(rowIndex, Col("Ürün Varyant Adı")).Value.ToString();
+                        invoice.Piece = int.Parse((string)sheet.Cell(rowIndex, Col("Adet")).Value.ToString().Split(' ')[0]);
                         invoice.TaxRate = taxRate;
-                        invoice.SubTotal = decimal.Parse(sheet.Cell(rowIndex, 38).Value.ToString());
+                        invoice.SubTotal = decimal.Parse((string)sheet.Cell(rowIndex, Col("Fatura Tutarı")).Value.ToString());
                         invoice.Tax = invoice.SubTotal - ((invoice.SubTotal * 100) / 120);
                         invoice.Price = invoice.SubTotal - invoice.Tax;
-                        invoice.CustomerName = sheet.Cell(rowIndex, 23).Value.ToString();
-                        invoice.TaxOffice = sheet.Cell(rowIndex, 26).Value.ToString();
-                        invoice.Address = sheet.Cell(rowIndex, 25).Value.ToString();
-                        var customerCompany = sheet.Cell(rowIndex, 24).Value.ToString();
+                        invoice.CustomerName = sheet.Cell(rowIndex, Col("Fatura İsmi")).Value.ToString();
+                        invoice.TaxOffice = sheet.Cell(rowIndex, Col("Vergi Dairesi")).Value.ToString();
+                        invoice.Address = sheet.Cell(rowIndex, Col("Gönderici Adresi")).Value.ToString();
+                        var customerCompany = sheet.Cell(rowIndex, Col("Gönderici Şirket")).Value.ToString();
                         if (!string.IsNullOrEmpty(customerCompany))
                         {
                             invoice.CustomerName = customerCompany;
                         }
-                        invoice.CustomerVKN = sheet.Cell(rowIndex, 27).Value.ToString();
+                        invoice.CustomerVKN = sheet.Cell(rowIndex, Col("Vergi Numarası")).Value.ToString();
                         if (string.IsNullOrEmpty(invoice.CustomerVKN))
                         {
                             invoice.CustomerVKN = "11111111111";
